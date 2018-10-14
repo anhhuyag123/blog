@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include layout/head %>
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+            <!-- HEADER MOBILE-->
+                  <!-- HEADER MOBILE-->
+        <%- include layout/header_mobile %>
+        <!-- END HEADER MOBILE-->
+            <!-- END HEADER MOBILE-->
+    
+        <!-- MENU SIDEBAR-->
+        <%- include layout/siderbar_post %>
+        <!-- END MENU SIDEBAR-->
+          
+            <!-- PAGE CONTAINER-->
+            <div class="page-container">
+       
+                    <%- include layout/header-desktop %>
+                <!-- MAIN CONTENT-->
+                <div class="main-content">
+                    <div class="section__content section__content--p30">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <!-- DATA TABLE -->
+                                    <h3 class="title-5 m-b-35">POST</h3>
+                                    <div class="table-data__tool">
+                                        <div class="table-data__tool-left">
+                                            <div class="rs-select2--light rs-select2--md">
+                                                <select class="js-select2" name="property">
+                                                    <option selected="selected">All Properties</option>
+                                                    <option value="">Option 1</option>
+                                                    <option value="">Option 2</option>
+                                                </select>
+                                                <div class="dropDownSelect2"></div>
+                                            </div>
+                                            <div class="rs-select2--light rs-select2--sm">
+                                                <select class="js-select2" name="time">
+                                                    <option selected="selected">Today</option>
+                                                    <option value="">3 Days</option>
+                                                    <option value="">1 Week</option>
+                                                </select>
+                                                <div class="dropDownSelect2"></div>
+                                            </div>
+                                            <button class="au-btn-filter">
+                                                <i class="zmdi zmdi-filter-list"></i>filters</button>
+                                        </div>
+                                        <div class="table-data__tool-right">
+                                                <a href="/admin/post/new" target="_parent"> 
+                                            <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                              <i class="zmdi zmdi-plus"></i>add posts</button></a> 
+                                            <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
+                                                <select class="js-select2" name="type">
+                                                    <option selected="selected">Export</option>
+                                                    <option value="">Option 1</option>
+                                                    <option value="">Option 2</option>
+                                                </select>
+                                                <div class="dropDownSelect2"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive table-responsive-data2">
+                                        <table class="table table-data2">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <label class="au-checkbox">
+                                                            <input type="checkbox">
+                                                            <span class="au-checkmark"></span>
+                                                        </label>
+                                                    </th>
+                                                    <th>ID</th>
+                                                    <th style="text-align: center">Title</th>
+                                                    <th style="text-align: center">Content</th>
+                                                    <th style="text-align: center">Author</th>
+                                                    <th>Create Time</th>
+                                                    <th>Update Time</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% if (data || data.posts)
+                                                {
+                                                    %>
+                                                    <%
+                                                    for(var i =0 ;i< data.posts.length;i++)
+                                                    {
+                                                    %>
+                                                <tr class="tr-shadow">
+                                                    <td>
+                                                        <label class="au-checkbox">
+                                                            <input type="checkbox">
+                                                            <span class="au-checkmark"></span>
+                                                        </label>
+                                                    </td>
+                                                    <td><%= data.posts[i].id%></td>
+                                                    <td><%= data.posts[i].title%></td>
+                                                    <td><%= data.posts[i].content%></td>
+                                                    <td><%= data.posts[i].author%></td>
+                                                    <td><%= data.posts[i].create_at%></td>
+                                                    <td><%= data.posts[i].update_at%></td>
+                                                    <td>
+                                                        <div class="table-data-feature">
+                                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
+                                                                <i class="zmdi zmdi-mail-send"></i>
+                                                            </button>
+                                                            <a href="/admin/post/edit/<%= data.posts[i].id%>" target="_parent">
+                                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                                <i class="zmdi zmdi-edit"></i>
+                                                            </button>
+                                                            </a>
+                                                            <button class="item post_delete" post_id="<%= data.posts[i].id%>" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                                <i class="zmdi zmdi-delete"></i>
+                                                            </button>
+                                                            <button class="item" data-toggle="tooltip" data-placement="top" title="More">
+                                                                <i class="zmdi zmdi-more"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                    <%
+                                                    }
+                                                    %> 
+                                                <%
+                                                }
+                                                    %>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- END DATA TABLE -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="copyright">
+                                        <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+        <%- include layout/javascript %>
+        <script type="text/javascript" src="/static/js/post.js"></script>
+</body>
+
+</html>

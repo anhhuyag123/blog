@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include layout/head %>
+
+</head>
+
+<body>
+    <%- include layout/navigation %>
+
+    <%- include layout/page_header %>
+    
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                    <% if (data && data.posts)
+                    {
+                        %>
+                        <%
+                        for(var i =0 ;i< data.posts.length;i++)
+                        {
+                        %>
+                <div class="post-preview">
+                    <a href="/blog/post/<%=data.posts[i].id%>">
+                        <h2 class="post-title">
+                                <%= data.posts[i].title%>
+                        </h2>
+                        <h3 class="post-subtitle">
+                                <%- data.posts[i].content%>
+                        </h3>
+                    </a>
+                    <p class="post-meta">
+                        <a href="#">Posted by <%= data.posts[i].author%></a>
+                        on <%= data.posts[i].create_at.getDate() %>/<%= data.posts[i].create_at.getMonth() %>/<%= data.posts[i].create_at.getFullYear() %></p>
+                </div>
+                <hr>
+
+                <%
+                    }
+                 %>
+                <%
+                }
+                      %>
+                                      <!-- Pager -->
+                <div class="clearfix">
+                    <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <%- include layout/footer %>
+
+    <%- include layout/javascript %>
+
+
+</body>
+
+</html>
