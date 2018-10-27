@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+
+		<%- include layout/404.ejs %>
+
+</head>
+
+<body>
+
+	<!-- header 
+   ================================================== -->
+   <header class="main-header">
+   	<div class="row">
+   		<div class="logo">
+	         <a href="/blog/">Bloghuyha</a>
+	      </div>   		
+   	</div>   
+
+   	<a class="menu-toggle" href="#"><span>Menu</span></a>	
+   </header> <!-- /header -->
+
+   <!-- navigation 
+   ================================================== -->
+   <nav id="menu-nav-wrap">
+
+   	<h5>Site Pages</h5>   	
+		<ul class="nav-list">
+			<li><a href="/blog/" title="">Home</a></li>
+			<li><a href="/blog/about" title="">About</a></li>				
+		</ul>
+	</nav>
+
+	<!-- main content
+   ================================================== -->
+   <main id="main-404-content" class="main-content-particle-js">
+
+   	<div class="content-wrap">
+
+		   <div class="shadow-overlay"></div>
+
+		   <div class="main-content">
+		   	<div class="row">
+		   		<div class="col-twelve">
+			  		
+			  			<h1 class="kern-this">404 Error.</h1>
+			  			<p>
+						Không tìm thấy trang vui lòng quay về trang chủ.
+			  			</p>
+
+			  			<div class="search">
+				      	<form>
+								<input type="text" id="s" name="s" class="search-field" placeholder="Type and hit enter …">
+							</form>
+				      </div>	   			
+
+			   	</div> <!-- /twelve --> 		   			
+		   	</div> <!-- /row -->    		 		
+		   </div> <!-- /main-content --> 
+
+		   <footer>
+		   	<div class="row">
+
+		   		<div class="col-seven tab-full social-links pull-right">
+			   		<ul>
+				   		<li><a href="https://www.facebook.com/profile.php?id=100007912848722"><i class="fa fa-facebook"></i></a></li>
+					      <li><a href="#"><i class="fa fa-behance"></i></a></li>
+					      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+					      <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+					      <li><a href="#"><i class="fa fa-instagram"></i></a></li>   			
+				   	</ul>
+			   	</div>
+		   			
+		  			<div class="col-five tab-full bottom-links">
+			   		<ul class="links">
+				   		<li><a href="/blog/">Homepage</a></li>
+				         <li><a href="/blog/about">About</a></li>
+				         <li><a href="mailto:huyha.hutech1996@gmail.com">Report Error</a></li>			                    
+				   	</ul>
+
+				   	<div class="credits">
+				   		<p>Design by <a href="http://www.styleshout.com/" title="styleshout">styleshout</a></p>
+				   	</div>
+			   	</div>   		   		
+
+		   	</div> <!-- /row -->    		  		
+		   </footer>
+
+		</div> <!-- /content-wrap -->
+   
+   </main> <!-- /main-404-content -->
+
+   <div id="preloader"> 
+    	<div id="loader"></div>
+   </div> 
+
+   <!-- Java Script
+   ================================================== --> 
+   <%- include layout/javascript404.ejs %>
+
+</body>
+
+</html>

@@ -111,12 +111,12 @@
                                                     </td>
                                                     <td>
                                                         <p>
-                                                            <%= data.users[i].create_at %>
+                                                            <%= data.users[i].create_at.getDate() %>/<%= data.users[i].create_at.getMonth() %>/<%= data.users[i].create_at.getFullYear() %>
                                                         </p>
                                                     </td>
                                                     <td>
                                                         <p>
-                                                            <%= data.users[i].update_at %>
+                                                            <%= data.users[i].update_at.getDate() %>/<%= data.users[i].update_at.getMonth() %>/<%= data.users[i].update_at.getFullYear() %>
                                                         </p>
                                                     </td>
                                                     <td>

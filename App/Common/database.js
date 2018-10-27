@@ -1,14 +1,15 @@
 var config = require("config");
-var mysql = require('mysql');
+const {  Client } = require('pg')
 
-var con = mysql.createConnection({
-    host: config.get("mysql.host"),
-    port: config.get("mysql.port"),
-    database: config.get("mysql.database"),
-    user:config.get("mysql.username")
-});
+var con =  new Client({
+    user:"dmqxigukrwztrp",
+    host: "ec2-54-243-61-194.compute-1.amazonaws.com",
+    database: "ddir6ml2vbbhpb",
+    password:"b84bb967e824eb79fad0435c394fe58c5df4604038d4ce977574b0dcd737d777",
+    port: 5432,
+  })
 
-con.connect();
+  con.connect();
 function getConnection() {
     if (!con) {
         con.connect();

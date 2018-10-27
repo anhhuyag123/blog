@@ -1,20 +1,16 @@
 var config = require("config");
-var mysql = require('mysql');
-var connection = mysql.createConnection({
-    host: config.get("mysql.host"),
-    port: config.get("mysql.port"),
-    database: config.get("mysql.database"),
-    user:"root"
-    
-});
+const {  Client } = require('pg')
 
-connection.connect();
+var con =  new Client({
+    user:config.get("postgressql.username"),
+    host: config.get("postgressql.host"),
+    database: config.get("postgressql.database"),
+    password:config.get("postgressql.password"),
+    port: 5432,
+  })
 
-connection.query('SELECT  * from user AS solution', function (error, results, fields) {
-    if (error) {
-        console.log("loi rui", error)
-    }
-    console.log('The solution is: ', results);
-});
-
-connection.end();
+  con.connect();
+  con.query('SELECT * from user', (err, res) => {
+    console.log(err, res)
+    con.end()
+  })

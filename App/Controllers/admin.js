@@ -54,7 +54,6 @@ router.post("/login", function (req, res) {
     }
     else {
         var data = user_md.getUserByEmail(params.email);
-
         data.then(function (users) {
             var user = users[0];
             if (users[0]) {
@@ -64,7 +63,6 @@ router.post("/login", function (req, res) {
                 }
                 else {
                     req.session.user = user
-                    console.log(req.session.user)
                     res.redirect("/admin/");
                 }
             }
@@ -200,7 +198,7 @@ router.get("/users", function (req, res) {
                 users: users,
                 error: false
             }
-
+ 
             res.render("admin/users", { data: data })
         }).catch(function (errorGet) {
             var data = {

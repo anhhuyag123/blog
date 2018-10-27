@@ -24,12 +24,12 @@
                         for(var i =0 ;i< data.posts.length;i++)
                         {
                         %>
-                <div class="post-preview">
+                <div class="post-preview"  class="post-subtitle" style="height: 180px; overflow: hidden; text-overflow: ellipsis;">
                     <a href="/blog/post/<%=data.posts[i].id%>">
                         <h2 class="post-title">
                                 <%= data.posts[i].title%>
                         </h2>
-                        <h3 class="post-subtitle">
+                        <h3>
                                 <%- data.posts[i].content%>
                         </h3>
                     </a>

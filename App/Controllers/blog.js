@@ -39,4 +39,7 @@ router.get("/post/:id",function(req,res) {
 router.get("/about",function (req, res) {
     res.render("blog/about");
 })
+router.get("/contact",function (req, res) {
+    res.render("blog/404page");
+})
 module.exports = router;

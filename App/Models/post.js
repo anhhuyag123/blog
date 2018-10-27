@@ -9,7 +9,7 @@ function getAllPosts() {
                 defer.reject(error);
             }
             else {          
-                defer.resolve(posts);
+                defer.resolve(posts.rows);
             }
             // Neat!
         });
@@ -17,15 +17,17 @@ function getAllPosts() {
 }
 function addPost(data) {
     if (data) {
+        var datas = [];
+        datas.push(data.title,data.content,data.author,new Date(),new Date());
         var defer = promist.defer();
-        var query = conn.query('INSERT INTO posts SET ?', data, function (error, results) {
+        var query = conn.query('INSERT INTO public.posts(title, content, author, create_at, update_at) VALUES ($1, $2, $3, $4, $5)', datas, function (error, results) {
             if (error) {
                 console.log(error)
                 defer.reject(error);
             }
             else {
             
-                defer.resolve(results);
+                defer.resolve(results.rows);
             }
             // Neat!
         });
@@ -35,13 +37,13 @@ function addPost(data) {
 }
 function getPostById(id) {
     var defer = promist.defer();
-    var query = conn.query('Select * from posts where  ?',{id:id}, function (error, posts) {
+    var query = conn.query('Select * from posts where id = $1',[id], function (error, posts) {
         if (error) {
             console.log(error)
             defer.reject(error);
         }
         else {          
-            defer.resolve(posts);
+            defer.resolve(posts.rows);
         }
         // Neat!
     });
@@ -50,14 +52,14 @@ function getPostById(id) {
 function updatePost(params) {
     if (params) {
         var defer = promist.defer();
-        var query = conn.query('Update posts SET title = ? , content = ? , author = ?,update_at = ? where id = ?', [params.title,params.content,params.author,new Date(),params.id], function (error, results) {
+        var query = conn.query('Update posts SET title = $1 , content = $2 , author = $3 ,update_at = $4 where id = $5', [params.title,params.content,params.author,new Date(),params.id], function (error, results) {
             if (error) {
                 console.log(error)
                 defer.reject(error);
             }
             else {
             
-                defer.resolve(results);
+                defer.resolve(results.rows);
             }
             // Neat!
         });
@@ -68,14 +70,14 @@ function updatePost(params) {
 function deletePost(id) {
     if (id) {
         var defer = promist.defer();
-        var query = conn.query('Delete from posts where id = ?', [id], function (error, results) {
+        var query = conn.query('Delete from posts where id = $1', [id], function (error, results) {
             if (error) {
                 console.log(error)
                 defer.reject(error);
             }
             else {
             
-                defer.resolve(results);
+                defer.resolve(results.rows);
             }
             // Neat!
         });
